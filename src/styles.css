@@ -1,0 +1,7 @@
+.dashboard-header { padding: 1rem; background: #1f2937; color: white; }
+.course-list { display: flex; gap: 1rem; flex-wrap: wrap; }
+.progress-card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 220px; cursor: pointer; }
+.progress-card.passing { border-left: 6px solid #22c55e; }
+.progress-card.at-risk { border-left: 6px solid #ef4444; }
+.status-label.passing { color: #16a34a; font-weight: bold; }
+.status-label.at-risk { color: #dc2626; font-weight: bold; }
