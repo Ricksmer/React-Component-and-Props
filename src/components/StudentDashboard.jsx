@@ -11,7 +11,7 @@ export function StudentProfile({student}) {
     );
 }
 
-function StudentDashboard({student, courses, adviserName, onCourseSelect}) {
+function StudentDashboard({student, courses, adviserName, onCourseSelect, selectedCourse}) {
     return (
         <main className="student-dashboard">
             <StudentProfile student={student} />
@@ -19,6 +19,7 @@ function StudentDashboard({student, courses, adviserName, onCourseSelect}) {
                 courses={courses}   
                 adviserName={adviserName}
                 onCourseSelect={onCourseSelect}
+                selectedCourse={selectedCourse}
             />
         </main>
     );

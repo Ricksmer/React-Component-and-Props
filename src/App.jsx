@@ -20,10 +20,8 @@ function App() {
         courses={courses}
         adviserName={adviserName}
         onCourseSelect={handleCourseSelect}
+        selectedCourse={selectedCourse}
       />
-      {selectedCourse && (
-        <p className="selected-course">Selected course: {selectedCourse.title}</p>
-      )}
     </div>
   );
 }

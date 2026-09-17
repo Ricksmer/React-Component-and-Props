@@ -1,0 +1,158 @@
+STUDENT PROGRESS LAB - CLAUDE HANDOFF SUMMARY
+===============================================
+
+Project
+-------
+A small React 19 + Vite student progress dashboard. It displays one student's academic profile and a responsive set of course progress cards.
+
+Current UI
+----------
+- Light blue-gray page background.
+- Navy text with blue as the primary accent.
+- Coral is reserved for at-risk courses and adviser warnings.
+- Modern typography:
+  - DM Sans for headings.
+  - Manrope for body/interface text.
+  - DM Mono for scores and metadata.
+- Rounded containers throughout:
+  - Student profile card: 18px radius.
+  - Course cards: 14px radius.
+  - Score metric tiles: 10px radius.
+  - Selected-course feedback: 10px radius.
+- No decorative repeating background lines or texture.
+- Course card hover state has a noticeable lift, scale, brighter blue background, blue border, and stronger shadow.
+- Entrance animations, score-meter animation, focus styles, and prefers-reduced-motion support are implemented.
+
+User-facing behavior
+--------------------
+- Header shows "Student Progress Dashboard" and the student's name.
+- Student profile shows name, program, year level, and ID.
+- Courses are rendered from src/data.js.
+- Each card shows:
+  - Course title.
+  - Units.
+  - Passing or At Risk status.
+  - Separate Score value.
+  - Separate Passing score value.
+  - Animated score meter.
+  - Adviser name.
+- Courses below the passing score show an adviser consultation note.
+- Clicking a course card displays "Selected course: [course title]" directly below the Courses heading and above the cards.
+- Course cards are keyboard accessible. Enter and Space select a focused card.
+
+Current sample data
+-------------------
+Student:
+- Name: Alex Rivera
+- ID: 2026-1042
+- Program: BS Information Technology
+- Year level: 3
+
+Courses:
+- IT311, React Development, score 82, passing score 75, 3 units.
+- IT312, Information Assurance, score 71, passing score 75, 3 units, at risk.
+- IT313, Computer Architecture, score 88, passing score 75, 3 units.
+
+Adviser: Dr. Santos
+
+Important file map
+------------------
+- src/App.jsx
+  Owns selectedCourse state and passes data/handlers into StudentDashboard.
+- src/data.js
+  Exports student and courses sample data.
+- src/index.css
+  Global reset, root defaults, and Google Font imports.
+- src/styles.css
+  All dashboard theme tokens, layout, responsive rules, rounded containers, hover states, score tiles, and animations.
+- src/components/DashboardHeader.jsx
+  Header and welcome message.
+- src/components/StudentDashboard.jsx
+  Student profile and course section composition. The .student-dashboard wrapper creates the shared content frame.
+- src/components/CourseSection.jsx
+  Courses heading, selected-course feedback, and CourseList.
+- src/components/CourseList.jsx
+  Maps course data to ProgressCard components and adds at-risk adviser notes.
+- src/components/ProgressCard.jsx
+  Interactive and keyboard-accessible course card. Determines passing/at-risk state.
+- src/components/ProgressStatus.jsx
+  Status label, separate score metrics, score meter, and adviser line.
+- README.md
+  Current project documentation.
+
+Project commands
+----------------
+Install dependencies:
+  npm install
+
+Start development server:
+  npm run dev
+
+Windows PowerShell alternative if npm shim execution policy blocks npm:
+  npm.cmd run dev
+
+Production build:
+  npm run build
+
+Lint:
+  npm run lint
+
+Preview production build:
+  npm run preview
+
+Validation status
+-----------------
+The current implementation has passed:
+- npm.cmd run build
+- npm.cmd run lint
+- Browser smoke checks for:
+  - Course selection feedback.
+  - Separate Score and Passing score labels.
+  - Desktop/mobile container width alignment.
+  - Keyboard/clickable course cards.
+  - Font rendering and light blue palette.
+
+Known scope
+-----------
+- Uses local sample data only.
+- No backend, authentication, persistence, routing, or API integration.
+- Google Fonts are loaded remotely, with generic sans-serif fallbacks.
+- package.json version remains 0.0.0 because this is a local lab project.
+
+Suggested next work
+-------------------
+- Move sample data into an API or persistence layer.
+- Add filtering/sorting by course status or score.
+- Add a detailed course view or modal after selection.
+- Add automated component/browser tests if this becomes production-facing.
+
+User Prompt History
+-------------------
+The project was developed through iterative visual and documentation feedback:
+
+1. Initial request: overhaul the styles so the dashboard looked classy, professional, attractive, and had clean animations and interactions.
+2. Palette request: replace the dark/green look with a light-colored interface using blue as the main accent. Increase hover contrast and make hover animations more noticeable. Remove the background lines and use a cleaner background.
+3. Typography request: replace the original fonts with simpler, more modern fonts that still felt luxurious.
+4. Layout request: make the student-name section a stylish container, add curved edges or border radius to containers, and move the selected-course message below the Courses subtitle and above the progress cards. Align its width with the other content.
+5. Alignment follow-up: make the student profile card align exactly with the rest of the dashboard content.
+6. Score display request: replace the combined score format such as "82 / 75" with separate Score and Passing score values.
+7. Score styling request: improve the visual design of the Score and Passing score area because the first separated version looked unattractive.
+8. Documentation request: update the README and create a text summary that could be sent to Claude.
+9. Current documentation request: include the user's prompts or a summary of the prompts and describe the nature of the AI usage.
+
+Nature of AI Usage
+------------------
+This project was developed with AI-assisted coding in an iterative, user-directed workflow.
+
+- The user supplied the product direction, visual preferences, layout feedback, and refinement requests.
+- AI inspected the existing React components, data, package scripts, and CSS before making changes.
+- AI implemented focused edits to the React components and CSS, including layout changes, typography, colors, score presentation, accessibility, and animations.
+- AI used browser checks to inspect rendered output, verify responsive alignment, test course selection, confirm keyboard behavior, and inspect computed styles.
+- AI ran the project's build and lint commands after changes.
+- The user reviewed the visual direction and provided successive corrections. The implementation was refined after each round of feedback.
+- The AI did not add a backend, external data source, authentication system, or persistence layer.
+- The current data and content remain local sample data supplied by the project.
+
+AI-assisted development summary
+-------------------------------
+The workflow was collaborative rather than fully autonomous: the AI handled codebase inspection, implementation, visual styling, accessibility improvements, documentation, and validation; the user acted as the product and design reviewer by describing the desired appearance and approving or redirecting each iteration.

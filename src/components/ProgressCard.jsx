@@ -14,6 +14,15 @@ function ProgressCard({
     <article
       className={passing ? "progress-card passing" : "progress-card at-risk"}
       onClick={onSelect}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onSelect();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${title}`}
     >
       <h3>{title}</h3>
       <p>{units} units</p>
